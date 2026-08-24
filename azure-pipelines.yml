@@ -121,8 +121,7 @@ stages:
         workingDirectory: terraform
         commandOptions: >-
           -auto-approve
-          # -var="key_vault_name=$(keyVaultName)"
-          # -var="key_vault_resource_group_name=$(keyVaultResourceGroup)"
+          
         environmentServiceNameAzureRM: $(azureServiceConnection)
 
     #########################################################
