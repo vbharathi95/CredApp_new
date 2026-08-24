@@ -33,6 +33,6 @@ database_name           = "credpay"
 # ----- Monitoring -----
 log_retention_days = 30
 
-# ----- Key Vault (created out-of-band, in the CredProj bootstrap RG - see backend.tf) -----
-key_vault_name                = "kv-credpay"
-key_vault_resource_group_name = "CredProj"
+# # ----- Key Vault (created out-of-band, in the CredProj bootstrap RG - see backend.tf) -----
+# key_vault_name                = "kv-credpay"
+# key_vault_resource_group_name = "CredProj"
