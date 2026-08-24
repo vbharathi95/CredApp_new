@@ -24,8 +24,8 @@ pool:
 variables:
 
   # Azure service connections
-  acrServiceConnection: 'CredPay-ACR-SC'
-  azureServiceConnection: 'scnew2'
+  acrServiceConnection: 'cred-acr'
+  azureServiceConnection: 'UC-Manual'
 
   # ACR resource name (not the service connection name above) - needed for
   # `az aks update --attach-acr`, which takes the registry's own name.
@@ -40,10 +40,10 @@ variables:
   paymentRepository: 'credpay/payment-service'
 
   # Terraform remote state backend
-  tfStateRG: 'CredProj'
-  tfStateStorage: 'credprojstate'
-  tfStateContainer: 'statefile'
-  tfStateKey: 'credpay.terraform.tfstate'
+  tfStateRG: 'credpay'
+  tfStateStorage: 'credpaysa12'
+  tfStateContainer: 'statefulset'
+  tfStateKey: 'terraform.tfstate'
 
   # AKS cluster - deterministic names from terraform/main.tf's
   # name_prefix = "credpay" (rg-credpay / aks-credpay)
