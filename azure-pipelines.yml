@@ -99,13 +99,13 @@ stages:
         backendAzureRmContainerName: $(tfStateContainer)
         backendAzureRmKey: $(tfStateKey)
 
-    # - task: TerraformTask@5
-    #   displayName: Terraform Destroy
-    #   inputs:
-    #     provider: azurerm
-    #     command: destroy
-    #     workingDirectory: terraform
-    #     environmentServiceNameAzureRM: $(azureServiceConnection)
+    - task: TerraformTask@5
+      displayName: Terraform Destroy
+      inputs:
+        provider: azurerm
+        command: destroy
+        workingDirectory: terraform
+        environmentServiceNameAzureRM: $(azureServiceConnection)
     
     #########################################################
     # Apply infra. subscription_id comes from terraform.tfvars (see the
@@ -113,16 +113,16 @@ stages:
     # Key Vault coordinates so they stay in sync with the pipeline
     # variables the Deploy stage reads secrets back with, below.
     #########################################################
-    - task: TerraformTask@5
-      displayName: Terraform Apply (infra + push secrets to Key Vault)
-      inputs:
-        provider: azurerm
-        command: apply
-        workingDirectory: terraform
-        commandOptions: >-
-          -auto-approve
+    # - task: TerraformTask@5
+    #   displayName: Terraform Apply (infra + push secrets to Key Vault)
+    #   inputs:
+    #     provider: azurerm
+    #     command: apply
+    #     workingDirectory: terraform
+    #     commandOptions: >-
+    #       -auto-approve
           
-        environmentServiceNameAzureRM: $(azureServiceConnection)
+    #     environmentServiceNameAzureRM: $(azureServiceConnection)
 
     #########################################################
     # Print the outputs so they're visible in the pipeline log
