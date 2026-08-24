@@ -83,8 +83,8 @@ output "log_analytics_workspace_id" {
   value       = module.monitoring.workspace_id
 }
 
-# ----- Key Vault -----
-output "key_vault_name" {
-  description = "Key Vault holding the PostgreSQL secrets (read by the pipeline's AzureKeyVault@2 task)."
-  value       = module.keyvault.key_vault_name
-}
+# # ----- Key Vault -----
+# output "key_vault_name" {
+#   description = "Key Vault holding the PostgreSQL secrets (read by the pipeline's AzureKeyVault@2 task)."
+#   value       = module.keyvault.key_vault_name
+# }
