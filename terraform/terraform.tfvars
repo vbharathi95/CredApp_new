@@ -9,7 +9,7 @@
 # =====================================================================
 
 # Azure Subscription ID
-subscription_id = "eb2e4db4-1889-4351-9b48-102efd8a3a57"
+subscription_id = "308bf077-f95a-4e26-a6c7-674e7488943d"
 
 # Azure Region
 location = "canadacentral"
@@ -23,7 +23,7 @@ postgres_subnet_prefix = "10.0.16.0/24"
 node_count     = 3
 node_min_count = 2
 node_max_count = 5
-vm_size        = "Standard_B2s"
+vm_size        = "Standard_D2alds_v6"
 
 # ----- PostgreSQL -----
 postgres_version        = "16"
