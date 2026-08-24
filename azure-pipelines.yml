@@ -45,18 +45,18 @@ variables:
   tfStateContainer: 'statefulset'
   tfStateKey: 'terraform.tfstate'
 
-  # AKS cluster - deterministic names from terraform/main.tf's
-  # name_prefix = "credpay" (rg-credpay / aks-credpay)
-  aksResourceGroup: 'rg-credpay'
-  aksClusterName: 'aks-credpay'
-  k8sNamespace: 'credpay'
+  # # AKS cluster - deterministic names from terraform/main.tf's
+  # # name_prefix = "credpay" (rg-credpay / aks-credpay)
+  # aksResourceGroup: 'rg-credpay'
+  # aksClusterName: 'aks-credpay'
+  # k8sNamespace: 'credpay'
 
-  # Azure Key Vault - created out-of-band (like the ACR), in the CredProj
-  # bootstrap RG (same RG as the Terraform state storage account, not
-  # rg-credpay). Terraform writes the Postgres secrets into it; the
-  # pipeline reads them back below.
-  keyVaultName: 'kv-credpay'
-  keyVaultResourceGroup: 'CredProj'
+  # # Azure Key Vault - created out-of-band (like the ACR), in the CredProj
+  # # bootstrap RG (same RG as the Terraform state storage account, not
+  # # rg-credpay). Terraform writes the Postgres secrets into it; the
+  # # pipeline reads them back below.
+  # keyVaultName: 'kv-credpay'
+  # keyVaultResourceGroup: 'CredProj'
 
 # =========================================================
 # STAGES
@@ -121,8 +121,8 @@ stages:
         workingDirectory: terraform
         commandOptions: >-
           -auto-approve
-          -var="key_vault_name=$(keyVaultName)"
-          -var="key_vault_resource_group_name=$(keyVaultResourceGroup)"
+          # -var="key_vault_name=$(keyVaultName)"
+          # -var="key_vault_resource_group_name=$(keyVaultResourceGroup)"
         environmentServiceNameAzureRM: $(azureServiceConnection)
 
     #########################################################
