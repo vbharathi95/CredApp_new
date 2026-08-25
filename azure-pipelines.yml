@@ -87,17 +87,17 @@ stages:
       inputs:
         terraformVersion: latest
 
-    # - task: TerraformTask@5
-    #   displayName: Terraform Init
-    #   inputs:
-    #     provider: azurerm
-    #     command: init
-    #     workingDirectory: terraform
-    #     backendServiceArm: $(azureServiceConnection)
-    #     backendAzureRmResourceGroupName: $(tfStateRG)
-    #     backendAzureRmStorageAccountName: $(tfStateStorage)
-    #     backendAzureRmContainerName: $(tfStateContainer)
-    #     backendAzureRmKey: $(tfStateKey)
+    - task: TerraformTask@5
+      displayName: Terraform Init
+      inputs:
+        provider: azurerm
+        command: init
+        workingDirectory: terraform
+        backendServiceArm: $(azureServiceConnection)
+        backendAzureRmResourceGroupName: $(tfStateRG)
+        backendAzureRmStorageAccountName: $(tfStateStorage)
+        backendAzureRmContainerName: $(tfStateContainer)
+        backendAzureRmKey: $(tfStateKey)
 
     - task: TerraformTask@5
       displayName: Terraform Destroy
@@ -113,16 +113,16 @@ stages:
     # Key Vault coordinates so they stay in sync with the pipeline
     # variables the Deploy stage reads secrets back with, below.
     #########################################################
-    - task: TerraformTask@5
-      displayName: Terraform Apply (infra + push secrets to Key Vault)
-      inputs:
-        provider: azurerm
-        command: apply
-        workingDirectory: terraform
-        commandOptions: >-
-          -auto-approve
+    # - task: TerraformTask@5
+    #   displayName: Terraform Apply (infra + push secrets to Key Vault)
+    #   inputs:
+    #     provider: azurerm
+    #     command: apply
+    #     workingDirectory: terraform
+    #     commandOptions: >-
+    #       -auto-approve
           
-        environmentServiceNameAzureRM: $(azureServiceConnection)
+        # environmentServiceNameAzureRM: $(azureServiceConnection)
 
     #########################################################
     # Print the outputs so they're visible in the pipeline log
